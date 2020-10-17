@@ -8,9 +8,7 @@ import os
 import logging
 #from tqdm import tqdm
 from merge_files import Merge
-
 logger = logging.getLogger("jsonmerge-logger")
-
 def output_folder(data_dir):
     """
     Creates new output folder for merged files to be stored in
