@@ -8,7 +8,17 @@ import os
 import logging
 #from tqdm import tqdm
 from merge_files import Merge
-logger = logging.getLogger("jsonmerge-logger")
+logger = logging.getLogger(__name__)
+def format_logger():
+    logger.setLevel(level=logging.INFO)
+    if not logger.handlers:
+        # Prevent logging from propagating to the root logger
+        logger.propagate = 0
+        log_formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        stream_handler = logging.StreamHandler()
+        stream_handler.setFormatter(log_formatter)
+        logger.addHandler(stream_handler)
+format_logger()
 def output_folder(data_dir):
     """
     Creates new output folder for merged files to be stored in

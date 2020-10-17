@@ -11,14 +11,6 @@ from jsonmerge import Merger
 from schema_modified import schema_builder
 
 logger = logging.getLogger("jsonmerge-logger")
-logger.setLevel(level=logging.INFO)
-if not logger.handlers:
-    # Prevent logging from propagating to the root logger
-    logger.propagate = 0
-    log_formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-    stream_handler = logging.StreamHandler()
-    stream_handler.setFormatter(log_formatter)
-    logger.addHandler(stream_handler)
 
 def merge_object(data_dir, max_file_size):
     """"
@@ -85,12 +77,9 @@ class Merge:
             count += 1
         end = True
         self.merge_file(None, end)
-        the_done_message = 'Done!!'
-        the_message = '{} Files Processed'.format(count)
-        the_files_created = '{} Result files created'.format(self.counter)
-        logger.info(the_done_message)
-        logger.info(the_message)
-        logger.info(the_files_created)
+        logger.info('Done!!')
+        logger.info('{} Files Processed'.format(count))
+        logger.info('{} Result files created'.format(self.counter))
 
     def merge_file(self, head, end):
         """
