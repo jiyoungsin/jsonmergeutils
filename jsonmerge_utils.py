@@ -5,9 +5,11 @@ Created on Fri Nov 15 04:21:26 2019
 @author: GRENTOR
 """
 import os
+import logging
 #from tqdm import tqdm
 from merge_files import Merge
 
+logger = logging.getLogger("jsonmerge-logger")
 
 def output_folder(data_dir):
     """
@@ -54,11 +56,11 @@ def main():
         merge.merge()
 
     except FileNotFoundError:
-        print('Please check the input prefix !!')
+        logger.error('Please check the input prefix !!')
     except FolderNotFoundError:
-        print('No such directory exists !!')
+        logger.error('No such directory exists !!')
     except ValueError:
-        print('File size larger than given Max File Size !!')
+        logger.error('File size larger than given Max File Size !!')
 
 if __name__ == '__main__':
     main()
