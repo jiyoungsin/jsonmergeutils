@@ -9,7 +9,10 @@ import logging
 #from tqdm import tqdm
 from merge_files import Merge
 logger = logging.getLogger(__name__)
-def format_logger():
+def configure_logger():
+    """
+    configures the logger object
+    """
     logger.setLevel(level=logging.INFO)
     if not logger.handlers:
         # Prevent logging from propagating to the root logger
@@ -18,7 +21,7 @@ def format_logger():
         stream_handler = logging.StreamHandler()
         stream_handler.setFormatter(log_formatter)
         logger.addHandler(stream_handler)
-format_logger()
+configure_logger()
 def output_folder(data_dir):
     """
     Creates new output folder for merged files to be stored in
