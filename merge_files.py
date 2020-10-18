@@ -78,8 +78,8 @@ class Merge:
         end = True
         self.merge_file(None, end)
         logger.info('Done!!')
-        logger.info('{} Files Processed'.format(count))
-        logger.info('{} Result files created'.format(self.counter))
+        logger.info('%d Files Processed', count)
+        logger.info('%d Result files created', self.counter)
 
     def merge_file(self, head, end):
         """
