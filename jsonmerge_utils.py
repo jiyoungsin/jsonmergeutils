@@ -13,7 +13,7 @@ def configure_logger():
     """
     configures the logger object
     """
-    logger.setLevel(level=logging.INFO)
+    logging.basicConfig(level=logging.INFO)
     if not logger.handlers:
         # Prevent logging from propagating to the root logger
         logger.propagate = 0
@@ -72,6 +72,7 @@ def main():
         logger.error('No such directory exists !!')
     except ValueError:
         logger.error('File size larger than given Max File Size !!')
+
 
 if __name__ == '__main__':
     main()
