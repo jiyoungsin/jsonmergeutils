@@ -21,7 +21,6 @@ def configure_logger():
         stream_handler = logging.StreamHandler()
         stream_handler.setFormatter(log_formatter)
         logger.addHandler(stream_handler)
-configure_logger()
 def output_folder(data_dir):
     """
     Creates new output folder for merged files to be stored in
@@ -51,6 +50,7 @@ def main():
     Driver Function
     """
     try:
+        configure_logger()
         data_dir = input('Folder Path: ')
         if not os.path.exists(data_dir):
             raise FolderNotFoundError
