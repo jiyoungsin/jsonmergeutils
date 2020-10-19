@@ -13,7 +13,7 @@ def configure_logger():
     """
     configures the logger object
     """
-    logging.basicConfig(level=logging.INFO)
+    logging.basicConfig(filename='output.log', level=logging.INFO)
     if not logger.handlers:
         # Prevent logging from propagating to the root logger
         logger.propagate = 0
